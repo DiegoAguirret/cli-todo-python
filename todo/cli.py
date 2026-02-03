@@ -11,7 +11,7 @@ import sys
 
 def load_tasks() -> List[str]:
     """Carga tareas desde tasks.txt"""
-    tasks_file = Path.home() / "tasks.txt"
+    tasks_file = Path.cwd() / "tasks.txt"
     if tasks_file.exists():
         return tasks_file.read_text(encoding="utf-8").splitlines()
     return []
@@ -19,7 +19,7 @@ def load_tasks() -> List[str]:
 
 def save_tasks(tasks: List[str]) -> None:
     """Guarda lista de tareas en tasks.txt"""
-    tasks_file = Path.home() / "tasks.txt"
+    tasks_file = Path.cwd() / "tasks.txt"
     tasks_file.write_text("\n".join(tasks), encoding="utf-8")
 
 
