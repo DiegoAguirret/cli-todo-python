@@ -42,7 +42,7 @@ def print_tasks(tasks: List[str]) -> None:
 def main():
     """Función principal - maneja comandos CLI"""
     if len(sys.argv) < 2:
-        print("❌ Uso: python -m todo [add|list]")
+        print("❌ Uso: python -m todo [add|list][del]")
         return
     
     command = sys.argv[1]
@@ -57,6 +57,17 @@ def main():
     elif command == "list":
         print_tasks(tasks)
     
+    elif command == "del" and len(sys.argv) > 2:
+        try:
+            numero = int(sys.argv[2]) - 1
+            if 0 <= numero  < len(tasks):
+                tarea_borrada = tasks.pop(numero)
+                save_tasks(tasks)
+                print(f"🗑️ Tarea '{tarea_borrada}' eliminada")
+            else:
+                print("❌ Número de tarea inválido")
+        except ValueError:
+            print("❌ El número de tarea debe ser un número entero")
     else:
         print(f"❌ Comando desconocido: {command}")
 
