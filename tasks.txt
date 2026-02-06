@@ -1,3 +1,0 @@
-Día 3: complete feature
-Día 4: help command
-Día 5: clear feature
