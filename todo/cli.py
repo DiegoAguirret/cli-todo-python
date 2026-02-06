@@ -42,7 +42,7 @@ def print_tasks(tasks: List[str]) -> None:
 def main():
     """Función principal - maneja comandos CLI"""
     if len(sys.argv) < 2:
-        print("❌ Uso: python -m todo [add|list][del][complete][help]")
+        print("❌ Uso: python -m todo [add|list][del][complete][help][clear]")
         return
     
     command = sys.argv[1]
@@ -81,6 +81,12 @@ def main():
         except ValueError:
                 print("❌ Uso: complete NÚMERO")
     
+    elif command == "clear":                           # ①
+        tasks = [t for t in tasks if not t.startswith("✅")]  # ②
+        save_tasks(tasks)                      # ③
+        print(f"🧹 {len(tasks)} tareas restantes")  # ④
+
+    
     elif command == "help":
         print("""
     🆘 CLI Todo v3.0 - Diego
@@ -92,6 +98,7 @@ def main():
     🗑️ del N            → Borra #N
     ✅ complete N        → Marca #N ✓
     ❓ help              → Esta ayuda
+    🧹 clear             → Borra tareas completadas
     """)
     return
 
