@@ -12,3 +12,11 @@ python todo/cli.py add "Python Día 4"
 python todo/cli.py list
 python todo/cli.py complete 1
 python todo/cli.py del 2
+
+| Comando     | Acción          |
+| ----------- | --------------- |
+| list        | 📋 Lista tareas |
+| add "texto" | ➕ Nueva tarea   |
+| del N       | 🗑️ Borra #N    |
+| complete N  | ✅ Marca #N      |
+| help        | ❓ Guía          |
