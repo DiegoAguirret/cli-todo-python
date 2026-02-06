@@ -68,8 +68,22 @@ def main():
                 print("❌ Número de tarea inválido")
         except ValueError:
             print("❌ El número de tarea debe ser un número entero")
+    
+    elif command == "complete" and len(sys.argv) > 2:
+        try:
+            numero = int(sys.argv[2]) - 1
+            if 0 <= numero < len(tasks):
+                tasks[numero] = f"✅ {tasks[numero]}"
+                save_tasks(tasks)
+                print(f"🎉 Tarea {numero+1} completada")
+            else:
+                print("❌ Número de tarea inválido")
+        except ValueError:
+                print("❌ Uso: complete NÚMERO")
+
     else:
         print(f"❌ Comando desconocido: {command}")
+
 
 
 if __name__ == "__main__":
