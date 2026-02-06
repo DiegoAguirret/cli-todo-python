@@ -1,2 +1,3 @@
 ✅ Día 2: del feature
 Día 3: complete feature
+Día 4: help command
